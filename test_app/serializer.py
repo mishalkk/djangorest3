@@ -19,3 +19,4 @@ class SimpleSerializer(serializers.Serializer):
     def update(self, instance, validated_data):
         TestModel.objects.filter(id=instance.id).update(**validated_data)
         return TestModel.objects.get(id=instance.id)
+    

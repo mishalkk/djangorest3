@@ -1,5 +1,6 @@
 from django.contrib import admin
-from test_app.models import TestModel, ModelX
+from test_app.models import Blog
 
-admin.site.register(TestModel)
-admin.site.register(ModelX)
+admin.site.register((Blog, ))
+
+

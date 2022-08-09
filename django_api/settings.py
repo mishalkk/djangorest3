@@ -38,9 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'debug_toolbar',
-    # testing
     'test_app',
+    'user',
+    # testing
+    'debug_toolbar',
     'django_seed',
 ]
 
@@ -79,6 +80,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_api.wsgi.application'
 
+AUTH_USER_MODEL = "user.CustomUser"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases

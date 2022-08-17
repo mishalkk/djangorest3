@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'test_app',
     'user',
+    'gateway',
     # testing
     'debug_toolbar',
     'django_seed',

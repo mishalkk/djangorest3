@@ -7,6 +7,7 @@ router = DefaultRouter()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('gateway/', include("gateway.urls")),
 ]
 
 

@@ -1,8 +1,9 @@
 from django.urls import path, include
-from gateway.views import LoginView, RegisterView, RefreshView
+from gateway import views
 
 urlpatterns = [
-    path('login', LoginView.as_view()),
-    path('register', RegisterView.as_view()),
-    path('refresh', RefreshView.as_view()),
+    path('login', views.LoginView.as_view()),
+    path('register', views.RegisterView.as_view()),
+    path('refresh', views.RefreshView.as_view()),
+    path('secure-info', views.GetSecuredInfo.as_view()),
 ]

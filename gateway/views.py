@@ -110,3 +110,12 @@ class GetSecuredInfo(APIView):
 
     def get(self, request):
         return Response({"data": "This is a secured info"})
+
+
+class TestExpection(APIView):
+    def get(self, request):
+        try:
+            a = 2/0
+        except Exception as e:
+            raise Exception("You cannot divide by zero")
+        return Response({"data": "Testing Exceptions"})

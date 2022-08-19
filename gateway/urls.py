@@ -6,4 +6,5 @@ urlpatterns = [
     path('register', views.RegisterView.as_view()),
     path('refresh', views.RefreshView.as_view()),
     path('secure-info', views.GetSecuredInfo.as_view()),
+    path('test-exception', views.TestExpection.as_view()),
 ]

@@ -101,9 +101,8 @@ DATABASES = {
 }
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'gateway.authentication.Authentication',
-    ]
+    'DEFAULT_AUTHENTICATION_CLASSES': ['gateway.authentication.Authentication', ],
+    'EXCEPTION_HANDLER': 'gateway.exception.custom_exception_handler',
 }
 
 # Password validation
@@ -141,6 +140,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = str(BASE_DIR) + '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

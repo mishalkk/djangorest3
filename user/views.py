@@ -4,9 +4,12 @@ from user.serializers import CustomUserSerializer, UserProfile, CustomUser, User
 
 class CustomUserView(ModelViewSet):
     serializer_class = CustomUserSerializer
-    queryset = CustomUser.objects.all()
+    # reverse relation
+    queryset = CustomUser.objects.prefetch_related("user_profile", "user_profile__address_info")
 
 
 class UserProfileView(ModelViewSet):
     serializer_class = UserProfileSerializer
-    queryset = UserProfile.objects.all()
+    # forward relation
+    queryset = UserProfile.objects.select_related("user", "address_info")
+

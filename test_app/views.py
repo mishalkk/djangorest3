@@ -7,7 +7,7 @@ car_names = ("Mercedes", "Porche", "Audi", "Honda", "Mitsbushi")
 
 seeder = Seed.seeder()
 
-seeder.add_entity(Car, 100, {
+seeder.add_entity(Car, 20, {
     'name': lambda x: car_names[randint(0, len(car_names) - 1)]
 })
 

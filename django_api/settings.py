@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'test_app',
     'user',
     'gateway',
+    'event_controller',
     # testing
     'debug_toolbar',
     'django_seed',

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from event_controller.models import EventMain, EventFeature, AddressGlobal
+from event_controller.models import EventMain, EventFeature, AddressGlobal, EventAttender
 from user.serializers import AddressGlobalSerializer, CustomUserSerializer
 
 
@@ -24,3 +24,12 @@ class EventMainSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class EventAttenderSerializer(serializers.ModelSerializer):
+    user_id = serializers.IntegerField(write_only=True)
+    user = CustomUserSerializer(read_only=True)
+    event_main_id = serializers.IntegerField(write_only=True)
+    event_main = serializers.CharField(read_only=True)
+
+    class Meta:
+        model = EventAttender
+        fields = "__all__"

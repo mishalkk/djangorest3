@@ -93,6 +93,14 @@ class EventAttenderView(ModelViewSet):
 
         event = event[0]
 
+        # check if user have already registered to attend
+        is_user_registered = self.queryset.filter(
+            event_main_id=event.id, user_id=attender_serializer.validated_data["user_id"]
+        )
+
+        if is_user_registered:
+            raise Exception("You have already registered for event")
+
         # check if the maximum seat have not reached
         attender_count = self.queryset.filter(event_main_id=event.id).count()
         if not attender_count < event.max_seat:

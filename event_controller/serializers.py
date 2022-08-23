@@ -18,6 +18,11 @@ class EventMainSerializer(serializers.ModelSerializer):
     address_info = AddressGlobalSerializer(read_only=True)
     address_info_id = serializers.IntegerField(write_only=True)
     event_features = EventFeatureSerializer(read_only=True, many=True)
+    attenders = serializers.SerializerMethodField("get_attenders")
+
+    def get_attenders(self, obj):
+        attenders = obj.event_attenders.all().count()
+        return attenders
 
     class Meta:
         model = EventMain
